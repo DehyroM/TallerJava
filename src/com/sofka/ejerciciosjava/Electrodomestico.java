@@ -5,23 +5,23 @@ import java.util.Map;
 
 public class Electrodomestico {
 
-    protected static double precioBase;
-    protected static String color;
-    protected static char consumoEnergetico;
-    protected static double peso;
+    protected double precioBase;
+    protected String color;
+    protected char consumoEnergetico;
+    protected double peso;
 
     public Electrodomestico(){
         precioBase = 100;
         peso = 5;
-        comprobarConsumoEnergetico(consumoEnergetico);
-        comprobarColor(color);
+        consumoEnergetico = 'F';
+        color = "blanco";
     }
 
     public Electrodomestico(double precioBase, double peso){
         this.precioBase = precioBase;
         this.peso = peso;
-        comprobarConsumoEnergetico(consumoEnergetico);
-        comprobarColor(color);
+        consumoEnergetico = 'F';
+        color = "blanco";
     }
 
     public Electrodomestico(double precioBase, double peso, String color, char consumoEnergetico){
@@ -31,21 +31,17 @@ public class Electrodomestico {
         comprobarColor(color);
     }
 
-    public void getPrecioBase(double precioBase){
-        this.precioBase = precioBase;
+    public double getPrecioBase(){
+        return precioBase;
     }
 
-    public void getColor(String Color){
-        this.color = color;
+    public String getColor(){
+        return color;
     }
 
-    public void getConsumoEnergetico(char consumoEnergético){
-        this.consumoEnergetico = consumoEnergético;
-    }
+    public char getConsumoEnergetico(){ return consumoEnergetico; }
 
-    public void getPeso(double peso){
-        this.peso = peso;
-    }
+    public double getPeso(){ return peso; }
 
     public void comprobarConsumoEnergetico(char letra){
         String consumo = String.valueOf(letra);
@@ -97,14 +93,4 @@ public class Electrodomestico {
         }else precio += 100;
         return precio;
     }
-
-
-
-    public static void main(String[] args) {
-        Electrodomestico equipo= new Electrodomestico(180, 10, "AZUL",'B');
-        System.out.println(equipo.precioFinal());
-
-    }
-
-
 }
