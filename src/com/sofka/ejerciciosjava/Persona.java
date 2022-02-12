@@ -5,12 +5,12 @@ import java.util.Random;
 
 public class Persona {
 
-    protected String nombre;
-    protected int edad;
-    protected String DNI;
-    protected char sexo;
-    protected double peso;
-    protected double altura;
+    private String nombre;
+    private int edad;
+    private String DNI;
+    private char sexo;
+    private double peso;
+    private double altura;
 
     public Persona(){
         nombre = "";
@@ -18,6 +18,7 @@ public class Persona {
         sexo = 'H';
         peso = 0;
         altura = 0;
+        comprobarSexo(sexo);
         generarDNI();
     }
 
@@ -25,6 +26,7 @@ public class Persona {
         this.nombre = nombre;
         this.edad = edad;
         this.sexo = sexo;
+        comprobarSexo(sexo);
         generarDNI();
     }
 
@@ -34,6 +36,7 @@ public class Persona {
         this.sexo = sexo;
         this.peso = peso;
         this.altura = altura;
+        comprobarSexo(sexo);
         generarDNI();
     }
 
@@ -47,6 +50,7 @@ public class Persona {
 
     public void setSexo(char sexo){
         this.sexo = sexo;
+        comprobarSexo(sexo);
     }
 
     public void setPeso(double peso){
@@ -113,16 +117,5 @@ public class Persona {
         }
         char caracterAleatorio = Character.toUpperCase((char) (random.nextInt(26) + 'a'));
         this.DNI = dni+caracterAleatorio;
-        //System.out.println(DNI);
-    }
-
-    public static void main(String[] args) {
-
-        Persona usuario = new Persona("Juanito",22,'H',70,1.75);
-        //System.out.println(usuario.calcularIMC());
-        //System.out.println(usuario.esMayorDeEdad());
-        //usuario.comprobarSexo('H');
-        System.out.println(usuario.toString());
-        //usuario.generarDNI();
     }
 }
