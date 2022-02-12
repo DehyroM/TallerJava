@@ -48,11 +48,32 @@ public class Multimedia {
                 entregado ++;
             }
         }
-        System.out.println(series.get(0).compareTo(series.get(1)));
-
 
         System.out.println("Había "+entregado+" series/videojuegos entregados");
 
+        int mayorSerie = 0;
+        int mayorJuego = 0;
 
+        for (int i = 0; i < series.size()-1; i++) {
+            switch (series.get(mayorSerie).compareTo(series.get(i+1))){
+                case 1:
+                    break;
+                case -1:
+                    mayorSerie ++;
+                    break;
+
+            }
+            switch (videojuegos.get(mayorJuego).compareTo(videojuegos.get(i+1))){
+                case 1:
+                    break;
+                case -1:
+                    mayorJuego ++;
+                    break;
+            }
+        }
+        System.out.println("El videojuego con más horas estimadas es "+videojuegos.get(mayorJuego).getTitulo());
+        System.out.println(videojuegos.get(mayorJuego).toString());
+        System.out.println("La serie conn más temporadas es "+series.get(mayorSerie).getTitulo());
+        System.out.println(series.get(mayorSerie).toString());
     }
 }
